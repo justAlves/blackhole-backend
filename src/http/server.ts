@@ -10,7 +10,10 @@ import cors from '@fastify/cors';
 const server = fastify();
 
 server.register(cors, {
-  origin: '*'
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 });
 
 server.get('/', (request, reply) => {
